@@ -14,24 +14,13 @@ export default function Home() {
   ]
   const [counts, setCounts] = useState(counters.map(() => 0))
 
-  useEffect(() => {
-    counters.forEach((counter, i) => {
-      let start = 0
-      const step = Math.ceil(counter.value / 50)
-      const interval = setInterval(() => {
-        start += step
-        if (start >= counter.value) {
-          start = counter.value
-          clearInterval(interval)
-        }
-        setCounts((prev) => {
-          const updated = [...prev]
-          updated[i] = start
-          return updated
-        })
-      }, 50)
-    })
-  }, [])
+// eslint-disable-next-line react-hooks/exhaustive-deps
+useEffect(() => {
+  counters.forEach((counter, i) => {
+    ...
+  })
+}, [])
+
 
   // ==== Projects Auto-Slider ====
   const projects = [
@@ -65,13 +54,15 @@ export default function Home() {
             <h1 className="text-2xl font-bold text-white">Project.ID</h1>
           </div>
           <ul className="flex gap-6">
-            <li><a href="#about" className="hover:text-green-400">About</a></li>
-            <li><a href="#services" className="hover:text-green-400">Services</a></li>
-            <li><a href="#projects" className="hover:text-green-400">Projects</a></li>
-            <li><a href="#testimonials" className="hover:text-green-400">Testimonials</a></li>
-            <li><a href="#comingsoon" className="hover:text-green-400">Coming Soon</a></li>
-            <li><a href="#contact" className="hover:text-green-400">Contact</a></li>
-          </ul>
+         <ul className="flex gap-6">
+  <li><Link href="#about" className="hover:text-green-400">About</Link></li>
+  <li><Link href="#services" className="hover:text-green-400">Services</Link></li>
+  <li><Link href="#projects" className="hover:text-green-400">Projects</Link></li>
+  <li><Link href="#testimonials" className="hover:text-green-400">Testimonials</Link></li>
+  <li><Link href="#comingsoon" className="hover:text-green-400">Coming Soon</Link></li>
+  <li><Link href="#contact" className="hover:text-green-400">Contact</Link></li>
+</ul>
+
         </nav>
 
         {/* Hero */}
@@ -157,7 +148,7 @@ export default function Home() {
               { id: 3, text: "Materi pembelajaran yang diberikan mudah dipahami dan instruktornya sabar sekali.", name: "Anisa Syakbaiah" },
             ].map((t) => (
               <div key={t.id} className="p-6 bg-black rounded-lg shadow">
-                <p className="italic">"{t.text}"</p>
+                <p className="italic">&quot;{t.text}&quot;</p>
                 <h4 className="mt-4 font-semibold text-green-400">{t.name}</h4>
               </div>
             ))}
