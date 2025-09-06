@@ -67,26 +67,22 @@ useEffect(() => {
             <Image src="/logo.jpg" alt="logo" width={40} height={40} className="rounded" />
             <h1 className="text-2xl font-bold text-white">Project.ID</h1>
           </div>
-          <ul className="flex gap-6">
-         <ul className="flex gap-6">
-  <li><Link href="#about" className="hover:text-green-400">About</Link></li>
-  <li><Link href="#services" className="hover:text-green-400">Services</Link></li>
-  <li><Link href="#projects" className="hover:text-green-400">Projects</Link></li>
-  <li><Link href="#testimonials" className="hover:text-green-400">Testimonials</Link></li>
-  <li><Link href="#comingsoon" className="hover:text-green-400">Coming Soon</Link></li>
-  <li><Link href="#contact" className="hover:text-green-400">Contact</Link></li>
-</ul>
+              <ul className="flex gap-6">
+            <li><a href="#about" className="hover:text-green-400">About</a></li>
+            <li><a href="#services" className="hover:text-green-400">Services</a></li>
+            <li><a href="#projects" className="hover:text-green-400">Projects</a></li>
+            <li><a href="#testimonials" className="hover:text-green-400">Testimonials</a></li>
+            <li><a href="#comingsoon" className="hover:text-green-400">Coming Soon</a></li>
+            <li><a href="#contact" className="hover:text-green-400">Contact</a></li>
+          </ul>
+          </nav>
 
-        </nav>
+{/* Hero */}
+<section className="text-center py-28 bg-gradient-to-r from-green-500 to-emerald-600 text-white">
+  <h2 className="text-4xl font-bold mb-4">Solusi Digital untuk Bisnismu</h2>
+  <p className="text-lg mb-6">Jasa Website • Game Development • Pendidikan • IT Infrastructure</p>
+</section>
 
-        {/* Hero */}
-        <section className="text-center py-28 bg-gradient-to-r from-green-500 to-emerald-600 text-white">
-          <h2 className="text-4xl font-bold mb-4">Solusi Digital untuk Bisnismu</h2>
-          <p className="text-lg mb-6">Jasa Website • Game Development • Pendidikan • IT Infrastructure</p>
-          <a href="#contact" className="px-6 py-3 bg-black text-green-400 font-semibold rounded-lg shadow hover:bg-gray-800">
-            Hubungi Kami
-          </a>
-        </section>
 
         {/* About */}
         <section id="about" className="py-16 px-8 text-center bg-gray-900">
