@@ -87,8 +87,8 @@ export default function Home() {
         <section id="about" className="py-16 px-8 text-center bg-gray-900">
           <h2 className="text-3xl font-bold mb-6 text-green-400">Tentang Kami</h2>
           <p className="max-w-2xl mx-auto text-gray-300">
-            Project.ID adalah sebuah gagasan dalam menyelesaikan perkembangan dunia digital, untuk memenuhi kebutuhan bisnis, pemahaman, dan 
-            Pengetahuan.
+            Project.ID adalah sebuah gagasan dalam menyelesaikan perkembangan dunia digital, 
+            untuk memenuhi kebutuhan bisnis, pemahaman, dan pengetahuan.
           </p>
         </section>
 
@@ -147,23 +147,22 @@ export default function Home() {
           </div>
         </section>
 
-{/* Testimonials */}
-<section id="testimonials" className="py-16 px-8 bg-gray-900">
-  <h2 className="text-3xl font-bold text-center mb-10 text-green-400">Testimoni</h2>
-  <div className="grid md:grid-cols-3 gap-6">
-    {[
-      { id: 1, text: "Tim Project.ID sangat profesional, websitenya cepat selesai dan hasilnya memuaskan.", name: "Budi Amarta" },
-      { id: 2, text: "Pelayanan ramah dan support 24 jam. Sangat membantu bisnis online saya berkembang.", name: "Dewi Sriyani" },
-      { id: 3, text: "Materi pembelajaran yang diberikan mudah dipahami dan instruktornya sabar sekali.", name: "Anisa Syakbaiah" },
-    ].map((t) => (
-      <div key={t.id} className="p-6 bg-black rounded-lg shadow">
-        <p className="italic">"{t.text}"</p>
-        <h4 className="mt-4 font-semibold text-green-400">{t.name}</h4>
-      </div>
-    ))}
-  </div>
-</section>
-
+        {/* Testimonials */}
+        <section id="testimonials" className="py-16 px-8 bg-gray-900">
+          <h2 className="text-3xl font-bold text-center mb-10 text-green-400">Testimoni</h2>
+          <div className="grid md:grid-cols-3 gap-6">
+            {[
+              { id: 1, text: "Tim Project.ID sangat profesional, websitenya cepat selesai dan hasilnya memuaskan.", name: "Budi Amarta" },
+              { id: 2, text: "Pelayanan ramah dan support 24 jam. Sangat membantu bisnis online saya berkembang.", name: "Dewi Sriyani" },
+              { id: 3, text: "Materi pembelajaran yang diberikan mudah dipahami dan instruktornya sabar sekali.", name: "Anisa Syakbaiah" },
+            ].map((t) => (
+              <div key={t.id} className="p-6 bg-black rounded-lg shadow">
+                <p className="italic">"{t.text}"</p>
+                <h4 className="mt-4 font-semibold text-green-400">{t.name}</h4>
+              </div>
+            ))}
+          </div>
+        </section>
 
         {/* Coming Soon */}
         <section id="comingsoon" className="py-16 px-8 text-center">
