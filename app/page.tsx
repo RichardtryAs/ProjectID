@@ -1,40 +1,38 @@
 "use client"
-import { useState, useEffect } from "react"
+import { useState, useEffect, useMemo } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import Head from "next/head"
 import Image from "next/image"
 
 export default function Home() {
-  // ==== Counter Animation ====
-  const counters = [
+  // ==== Counter Animation (pakai useMemo biar stabil) ====
+  const counters = useMemo(() => [
     { label: "Projects", value: 20 },
     { label: "Clients", value: 15 },
     { label: "Students", value: 10 },
     { label: "Product", value: 15 },
-  ]
+  ], [])
+
   const [counts, setCounts] = useState(counters.map(() => 0))
 
-// eslint-disable-next-line react-hooks/exhaustive-deps
-useEffect(() => {
-  counters.forEach((counter, i) => {
-    let start = 0
-    const step = Math.ceil(counter.value / 50)
-    const interval = setInterval(() => {
-      start += step
-      if (start >= counter.value) {
-        start = counter.value
-        clearInterval(interval)
-      }
-      setCounts((prev) => {
-        const updated = [...prev]
-        updated[i] = start
-        return updated
-      })
-    }, 50)
-  })
-}, [])
-
-
+  useEffect(() => {
+    counters.forEach((counter, i) => {
+      let start = 0
+      const step = Math.ceil(counter.value / 50)
+      const interval = setInterval(() => {
+        start += step
+        if (start >= counter.value) {
+          start = counter.value
+          clearInterval(interval)
+        }
+        setCounts((prev) => {
+          const updated = [...prev]
+          updated[i] = start
+          return updated
+        })
+      }, 50)
+    })
+  }, [counters])
 
   // ==== Projects Auto-Slider ====
   const projects = [
@@ -67,7 +65,7 @@ useEffect(() => {
             <Image src="/logo.jpg" alt="logo" width={40} height={40} className="rounded" />
             <h1 className="text-2xl font-bold text-white">Project.ID</h1>
           </div>
-              <ul className="flex gap-6">
+          <ul className="flex gap-6">
             <li><a href="#about" className="hover:text-green-400">About</a></li>
             <li><a href="#services" className="hover:text-green-400">Services</a></li>
             <li><a href="#projects" className="hover:text-green-400">Projects</a></li>
@@ -75,14 +73,13 @@ useEffect(() => {
             <li><a href="#comingsoon" className="hover:text-green-400">Coming Soon</a></li>
             <li><a href="#contact" className="hover:text-green-400">Contact</a></li>
           </ul>
-          </nav>
+        </nav>
 
-{/* Hero */}
-<section className="text-center py-28 bg-gradient-to-r from-green-500 to-emerald-600 text-white">
-  <h2 className="text-4xl font-bold mb-4">Solusi Digital untuk Bisnismu</h2>
-  <p className="text-lg mb-6">Jasa Website • Game Development • Pendidikan • IT Infrastructure</p>
-</section>
-
+        {/* Hero */}
+        <section className="text-center py-28 bg-gradient-to-r from-green-500 to-emerald-600 text-white">
+          <h2 className="text-4xl font-bold mb-4">Solusi Digital untuk Bisnismu</h2>
+          <p className="text-lg mb-6">Jasa Website • Game Development • Pendidikan • IT Infrastructure</p>
+        </section>
 
         {/* About */}
         <section id="about" className="py-16 px-8 text-center bg-gray-900">
