@@ -17,9 +17,23 @@ export default function Home() {
 // eslint-disable-next-line react-hooks/exhaustive-deps
 useEffect(() => {
   counters.forEach((counter, i) => {
-    ...
+    let start = 0
+    const step = Math.ceil(counter.value / 50)
+    const interval = setInterval(() => {
+      start += step
+      if (start >= counter.value) {
+        start = counter.value
+        clearInterval(interval)
+      }
+      setCounts((prev) => {
+        const updated = [...prev]
+        updated[i] = start
+        return updated
+      })
+    }, 50)
   })
 }, [])
+
 
 
   // ==== Projects Auto-Slider ====
